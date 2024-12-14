@@ -1,0 +1,50 @@
+html{
+    min-height: 100%;
+}
+
+body{
+    background: linear-gradient(black,green);
+   
+   
+}
+
+.terminal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+#inpt{
+    border: 2px solid rgba(12, 221, 12, 0.779);
+    padding: 10px 15px;
+}
+
+
+#outt{
+    border: 2px solid rgba(12, 221, 12, 0.779);
+    margin-top: 25px;
+    padding: 10px 15px;
+}
+
+.box{
+    background-color: black;
+    color: rgba(57, 234, 26, 0.942);
+    display: flex;
+}
+
+.box #Icode{
+    width: 500px;
+    height: 500px;
+}
+
+.box #Ocode {
+    width: 500px;
+    height: 200px;
+}
+
+#tt{
+    text-align: center;
+    margin: 10px auto;
+}
