@@ -48,3 +48,44 @@ body{
     text-align: center;
     margin: 10px auto;
 }
+
+#bar {
+    width: 100%;
+    max-width: 400px;
+    height: 20px;
+    background-color: #ddd;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden; /* Keeps loading bar within bounds */
+    display: none; /* Initially hidden */
+  }
+  
+  #load {
+    height: 100%;
+    width: 0%; /* Starts at 0%, animates to 100% */
+    background-color: #4caf50;
+    transition: width 2s ease; /* Smooth transition */
+  }
+  
+  #status {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 150px;
+    width: 80%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    text-align: left;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+ 
+
+
+  #disp{
+    display: flex;
+    flex-direction: column;
+  }
