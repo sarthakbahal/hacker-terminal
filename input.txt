@@ -1,0 +1,82 @@
+void injectPayload(const std::string& targetIP) {
+    std::cout << "[+] Injecting payload into target: " << targetIP << std::endl;
+    for (int i = 0; i < 100; i++) {
+        std::cout << "[*] Data packet sent: #" << i << std::endl;
+    }
+    std::cout << "[+] Exploit successful!" << std::endl;
+}
+
+void bruteForcePassword(const std::string& hash) {
+    std::vector<std::string> passwordList = {"password123", "qwerty", "admin", "hunter2"};
+    for (const auto& password : passwordList) {
+        std::cout << "[*] Trying password: " << password << " -> FAILED" << std::endl;
+        if (password == "admin") {
+            std::cout << "[+] Password cracked: " << password << std::endl;
+            break;
+        }
+    }
+}
+
+int main() {
+    std::string targetIP = "192.168.1.1";
+    std::cout << "[+] Connecting to target: " << targetIP << std::endl;
+
+    injectPayload(targetIP);
+
+    std::string hash = "5f4dcc3b5aa765d61d8327deb882cf99";
+    std::cout << "[+] Cracking password hash: " << hash << std::endl;
+    bruteForcePassword(hash);
+
+    std::cout << "[+] Uploading rootkit to target system..." << std::endl;
+    std::cout << "[*] Rootkit installed successfully!" << std::endl;
+
+    return 0;
+}
+
+
+public class HackSimulator {
+
+    public static void scanNetwork(String ipRange) {
+        System.out.println("[+] Scanning network range: " + ipRange);
+        for (int i = 1; i <= 255; i++) {
+            String ip = ipRange + "." + i;
+            System.out.println("[*] Ping " + ip + " -> Host found!");
+        }
+        System.out.println("[+] Network scan complete.");
+    }
+
+    public static void bruteForce(String hash) {
+        System.out.println("[+] Starting brute force on hash: " + hash);
+        String[] passwords = {"123456", "password", "admin", "letmein"};
+        for (String pass : passwords) {
+            System.out.println("[*] Trying: " + pass + " -> FAILED");
+            if (pass.equals("admin")) {
+                System.out.println("[+] Password cracked: " + pass);
+                break;
+            }
+        }
+    }
+
+    public static void exploit(String ip) {
+        System.out.println("[+] Exploiting target: " + ip);
+        for (int i = 0; i < 5; i++) {
+            System.out.println("[*] Sending exploit packet #" + i);
+        }
+        System.out.println("[+] Exploit successful. System compromised!");
+    }
+
+    public static void main(String[] args) {
+        String targetIP = "192.168.1.100";
+        System.out.println("[+] Connecting to target: " + targetIP);
+
+        scanNetwork("192.168.1");
+
+        System.out.println("[+] Deploying payload to: " + targetIP);
+        exploit(targetIP);
+
+        System.out.println("[+] Gaining root access...");
+        bruteForce("5f4dcc3b5aa765d61d8327deb882cf99");
+
+        System.out.println("[+] Upload complete. Mission success!");
+    }
+}
