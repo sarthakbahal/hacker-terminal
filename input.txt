@@ -65,18 +65,5 @@ public class HackSimulator {
         System.out.println("[+] Exploit successful. System compromised!");
     }
 
-    public static void main(String[] args) {
-        String targetIP = "192.168.1.100";
-        System.out.println("[+] Connecting to target: " + targetIP);
-
-        scanNetwork("192.168.1");
-
-        System.out.println("[+] Deploying payload to: " + targetIP);
-        exploit(targetIP);
-
-        System.out.println("[+] Gaining root access...");
-        bruteForce("5f4dcc3b5aa765d61d8327deb882cf99");
-
-        System.out.println("[+] Upload complete. Mission success!");
-    }
+    
 }

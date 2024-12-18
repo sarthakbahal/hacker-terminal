@@ -30,62 +30,55 @@ window.onload = loadfile;
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let start = document.getElementById("start");
-    let bar = document.getElementById("bar");
-    let load = document.getElementById("load");
-    let stat = document.getElementById("status");
+   let start = document.getElementById("start");
+   let cont = document.getElementById("gifc");
+   let gif = document.getElementById("gif");
+   const popupOverlay = document.getElementById("popupOverlay");
+   const closePopup = document.getElementById("closePopup");
+   const popupMessage = document.getElementById("popupMessage");
+   let tick = document.getElementById("tick");
 
-    let outmsg = [
-        "[BOOT] Starting system diagnostics...",
-        "[INFO] CPU cores: 8 | RAM: 16GB | Disk: 1TB SSD",
-        "[BOOT] Loading kernel modules... [OK]",
-        "[INIT] Mounting encrypted filesystem... [SUCCESS]",
-        "[INFO] Establishing secure environment...",
-        "[READY] System ready for operation.",
-        "> sudo hack --target 192.168.1.10 --exploit-type buffer_overflow" ,
-        "[COMMAND] Initiating target scan...",
-        "[INFO] Potential vulnerability found: CVE-2023-XXXX",
-        "[COMMAND] Execution complete. Access granted!"
-    ];
 
-    start.addEventListener("click",() => {
-        stat.innerHTML = "";
-        stat.style.width = "0%";
-        start.style.display = "none";
-        bar.style.display = "block";
-    
-        setTimeout(() =>{
-            load.style.width = "100%";
-        },1000);
-    
-        let delay = 2000;
-        outmsg.forEach((message, index) => {
-            setTimeout(() => {
-               addmsg(message);
-    
-               if(index === outmsg.length - 1){
-                setTimeout(() => {
-                    restat(); 
-                }, 1000);
-               }
-    
-            }, delay + index*1500);
-        });
-    })
-    
-    function addmsg(message) {
-        let msgEl = document.createElement("div");
-        msgEl.textContent = message;
-        stat.appendChild(msgEl);
-        stat.scrollTop = stat.scrollHeight;
-    
+   start.addEventListener("click",() => {
+    start.style.display = "none";
+    cont.style.display = "inline-block";
+
+    setTimeout(() => {
+        cont.style.display = "none";
+        showpopup();
+      }, 5000);
+   });
+
+   function showpopup(){
+    popupOverlay.style.display = "block";
+    if (wcnt == words.length) {
+        popupMessage.style.color = "#46f311";
+        popupMessage.textContent = " ACCESS GRANTED ";
+    } else {
+        popupMessage.style.color = "red";
+        popupMessage.textContent = " FULL SCRIPT NOT USED - ACCESS DENIED ";
     }
+
+
+    setTimeout(() => {
+        closePopupWindow();
+        restat();
+      }, 5000);
+   }
+
+   function closePopupWindow() {
+    popupOverlay.style.display = "none";
     
-    
-    function restat() {
-        bar.style.display = "none";
+  }
+
+  function restat() {
+    if(wcnt == words.length){
+        tick.style.display = "inline-block";
+    }else{
         start.style.display = "inline-block";
-        bar.style.width = "0%";
     }
+  }
+
+  closePopup.addEventListener("click", closePopupWindow);
 });
 
